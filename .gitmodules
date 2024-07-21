@@ -11,3 +11,6 @@
 	path = description/media
 	url = https://github.com/nasa/astrobee_media.git
 	shallow = true
+[submodule "mrs-gds-display"]
+	path = mrs-gds-display
+	url = ssh://git@bitbucket.csiro.au:7999/zb/mrs_gds_display.git
