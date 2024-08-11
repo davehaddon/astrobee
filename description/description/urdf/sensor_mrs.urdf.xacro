@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2017, United States Government, as represented by the     -->
+<!-- Administrator of the National Aeronautics and Space Administration.     -->
+<!--                                                                         -->
+<!-- All rights reserved.                                                    -->
+<!--                                                                         -->
+<!-- The Astrobee platform is licensed under the Apache License, Version 2.0 -->
+<!-- (the "License"); you may not use this file except in compliance with    -->
+<!-- the License. You may obtain a copy of the License at                    -->
+<!--                                                                         -->
+<!--     http://www.apache.org/licenses/LICENSE-2.0                          -->
+<!--                                                                         -->
+<!-- Unless required by applicable law or agreed to in writing, software     -->
+<!-- distributed under the License is distributed on an "AS IS" BASIS,       -->
+<!-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or         -->
+<!-- implied. See the License for the specific language governing            -->
+<!-- permissions and limitations under the License.                          -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="mrs_payload" params="bay xyz rpy">
+    <link name="mrs_${prefix}${bay}">
+      <self_collide>false</self_collide>
+      <inertial>
+        <origin
+          xyz="-0.03435 0.00817 0.03222"
+          rpy="0 0 0" />
+        <mass
+          value="1.5" />
+        <inertia
+          ixx="0.02596"
+          ixy="0.0573"
+          ixz="0.01564"
+          iyy="0.8962"
+          iyz="0.0541"
+          izz="0.7956" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://astrobee_freeflyer/meshes/MRS_only.dae" />
+        </geometry>
+      </visual>
+    </link>
+    <joint
+        name="mrs_${bay}"
+        type="fixed">
+        <origin
+        xyz="${xyz}"
+        rpy="${rpy}" />
+        <parent
+          link="${prefix}body" />
+        <child
+          link="mrs_${prefix}${bay}" />
+    </joint>
+    <link name="mrs_lc_${prefix}${bay}">
+      <self_collide>false</self_collide>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://astrobee_freeflyer/meshes/MRS_left_cam_mat.dae" />
+        </geometry>
+        <material  name="blue">
+          <color rgba="0 0 1 0.3"/>
+        </material>
+      </visual>
+    </link>
+    <joint
+        name="mrs_lc_${bay}"
+        type="fixed">
+        <origin
+        xyz="${xyz}"
+        rpy="${rpy}" />
+        <parent
+          link="${prefix}body" />
+        <child
+          link="mrs_lc_${prefix}${bay}" />
+    </joint>
+    <link name="mrs_rc_${prefix}${bay}">
+      <self_collide>false</self_collide>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://astrobee_freeflyer/meshes/MRS_right_cam.dae" />
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 0.3"/>
+        </material>
+      </visual>
+    </link>
+    <joint
+        name="mrs_rc_${bay}"
+        type="fixed">
+        <origin
+        xyz="${xyz}"
+        rpy="${rpy}" />
+        <parent
+          link="${prefix}body" />
+        <child
+          link="mrs_rc_${prefix}${bay}" />
+    </joint>
+  </xacro:macro>
+</robot>

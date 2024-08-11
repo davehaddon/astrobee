@@ -19,5 +19,5 @@
   <arg name="world"/>
   <node name="rviz_node" pkg="rviz" type="rviz" 
         respawn="true"  output="log"
-        args="-d $(find astrobee)/resources/rviz/$(arg world).rviz"/>
+        args="-d $(find astrobee)/resources/rviz/mrs_$(arg world).rviz"/>
 </launch>

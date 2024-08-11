@@ -36,9 +36,9 @@
   <arg name="mlp" default="local" />          <!-- MLP IP address            -->
 
   <!-- Payload options -->
-  <arg name="top_aft" default="perching_arm" /> <!-- Payload bays            -->
-  <arg name="bot_aft" default="empty" />        <!-- Payload bays            -->
-  <arg name="bot_front" default="empty" />      <!-- Payload bays            -->
+  <arg name="top_aft" default="perching_arm" />   <!-- Payload bays            -->
+  <arg name="bot_aft" default="mrs_payload" />           <!-- Payload bays            -->
+  <arg name="bot_front" default="empty" />        <!-- Payload bays            -->
 
   <!-- Simulation options only -->
   <arg name="pose" default="0 0 0 0 0 0 1" /> <!-- Initial pose (sim only)   -->
@@ -67,7 +67,7 @@
 
     <!-- Set the TF prefix, create a robot description and joint state publisher -->
     <param name="robot_description"
-           command='$(find xacro)/xacro --inorder $(find description)/urdf/model.urdf.xacro world:="$(arg world)" top_aft:="$(arg top_aft)" bot_aft:="$(arg bot_aft)" bot_front:="$(arg bot_front)" ns:="_$(arg ns)" prefix:="$(arg ns)/"'/>
+           command='$(find xacro)/xacro $(find description)/urdf/model.urdf.xacro world:="$(arg world)" top_aft:="$(arg top_aft)" bot_aft:="$(arg bot_aft)" bot_front:="$(arg bot_front)" ns:="_$(arg ns)" prefix:="$(arg ns)/"'/>
     <node pkg="robot_state_publisher" type="robot_state_publisher"
           name="astrobee_state_publisher" />
 
