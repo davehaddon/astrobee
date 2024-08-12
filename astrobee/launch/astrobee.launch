@@ -37,7 +37,7 @@
 
   <!-- Payload options -->
   <arg name="top_aft" default="perching_arm" /> <!-- Payload bays            -->
-  <arg name="bot_aft" default="empty" />        <!-- Payload bays            -->
+  <arg name="bot_aft" default="mrs_payload" />        <!-- Payload bays            -->
   <arg name="bot_front" default="empty" />      <!-- Payload bays            -->
 
   <!-- Simulation options only -->

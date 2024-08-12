@@ -56,6 +56,7 @@ DEFINE_double(accel, 0.0175, "Desired acceleration in m/s^2");
 DEFINE_double(omega, 0.1745, "Desired angular velocity in rad/s");
 DEFINE_double(alpha, 0.2, "Desired angular acceleration in rad/s^2");
 DEFINE_double(tolerance, 0.1, "When two points are close enough.");
+DEFINE_double(min_control_period, 1.0, "Minimum time between waypoints");
 DEFINE_string(creator, "astrobee", "The name of the creator of the plan.");
 DEFINE_string(rotations_multiplication_order, "yaw-pitch-roll",
               "The order in which the roll, pitch, and yaw matrices will "
@@ -160,12 +161,12 @@ int main(int argc, char *argv[]) {
     // Write the segment connecting to the next station
     ros::Time station_time(0);  // Start at this time
     ff_util::Segment segment;
-    double dt = 0, min_control_period = 1.0, epsilon = 0.001;
+    double dt = 0, epsilon = 0.001;
     planner_trapezoidal::InsertTrapezoid(segment,       // output
                                          station_time,  // this will be incremented
                                          dt, Tf[id], Tf[id+1],
                                          FLAGS_vel, FLAGS_omega, FLAGS_accel, FLAGS_alpha,
-                                         min_control_period, epsilon);
+                                         FLAGS_min_control_period, epsilon);
 
     // Export the segment to a more plain format
     std::vector<Eigen::VectorXd> SegVec;

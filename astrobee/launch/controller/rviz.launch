@@ -14,10 +14,10 @@
 <!-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or         -->
 <!-- implied. See the License for the specific language governing            -->
 <!-- permissions and limitations under the License.                          -->
-
+<!-- rviz was $(arg world).rviz -->
 <launch>
   <arg name="world"/>
   <node name="rviz_node" pkg="rviz" type="rviz" 
         respawn="true"  output="log"
-        args="-d $(find astrobee)/resources/rviz/$(arg world).rviz"/>
+        args="-d $(find astrobee)/resources/rviz/mrs_iss.rviz"/>
 </launch>

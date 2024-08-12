@@ -17,5 +17,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-rosrun executive plan_pub $1
+if [ "$1" == "" ]
+then
+    echo No Plan supplied.. Sending a runPlan command
+    rostopic pub --once /command ff_msgs/CommandStamped '{cmd_name: "runPlan", subsys_name: "Astrobee" }'
+else
+    rosrun executive plan_pub $1
+fi
 echo "All done"
