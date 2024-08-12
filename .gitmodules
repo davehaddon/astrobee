@@ -14,3 +14,9 @@
 [submodule "mrs-gds-display"]
 	path = mrs-gds-display
 	url = ssh://git@bitbucket.csiro.au:7999/zb/mrs_gds_display.git
+[submodule "submodules/mrs-gds-display"]
+	path = submodules/mrs-gds-display
+	url = git@github.com:davehaddon/mrs-gds-display.git
+[submodule "astrobee/plans/fplan_builder"]
+	path = astrobee/plans/fplan_builder
+	url = ssh://git@bitbucket.csiro.au:7999/zb/fplan_builder.git
