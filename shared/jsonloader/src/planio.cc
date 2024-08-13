@@ -102,7 +102,7 @@ void jsonloader::WritePlanHeader(std::ofstream & ofs, double vel, double accel,
 }
 
 void jsonloader::WriteSegment(std::ofstream & ofs, std::vector<Eigen::VectorXd> const& SegVec,
-                              double vel, double accel, double omega, double alpha, int id) {
+                              double vel, double accel, double omega, double alpha, bool ff, int id) {
   ofs << "  }, {\n";
   ofs << "    \"type\" : \"Segment\",\n";
   ofs << "    \"waypoints\" : [ ";
@@ -127,7 +127,11 @@ void jsonloader::WriteSegment(std::ofstream & ofs, std::vector<Eigen::VectorXd> 
   ofs << "    \"maxAccel\" : " << accel << ",\n";
   ofs << "    \"maxAAccel\" : " << alpha << ",\n";
   ofs << "    \"stopAtEnd\" : true,\n";
-  ofs << "    \"faceForward\" : false,\n";
+  if (ff) {
+    ofs << "    \"faceForward\" : true,\n";
+  } else {
+    ofs << "    \"faceForward\" : false,\n";
+  }
   ofs << "    \"name\" : \"" << id << "-" << id + 1 << "\",\n";
   ofs << "    \"id\" : \"" << id << "\",\n";
   ofs << "    \"sequence\" : [ ]\n";

@@ -3,30 +3,30 @@
 #  NOTES:  Scan airlock from top left to bottom right
 #
 #
-#created=2024-08-12T05:02:40Z
+#created=2024-08-12T14:47:28Z
 #name=mrs_airlock_scan
 #debug=0
 #planNumber=0
-#linvel=0.05
+#linvel=0.03
 #linacc=0.0175
 #angvel=0.05
 #angacc=0.1
-#segSteps=3
 #profileName=iss_mrs
 #flightMode=nominal
-#faceForward=True
+#faceForward=False
+#min_cp=5
 #collisionDistance=0.02
 #notes=Scan airlock from top left to bottom right
 #defaultSpeed=0.1
 #defaultTolerance=0.1
 #creator=dhaddon
 # Stations
-10.45 -9.68 4.70 90.0000 160.0000 0.0000 # jem_al_tl
-10.95 -9.68 4.70 90.0000 165.0000 0.0000 # jem_al_tc
-11.45 -9.68 4.70 90.0000 165.0000 0.0000 # jem_al_tr
-11.45 -9.68 5.20 90.0000 150.0000 0.0000 # jem_al_mr
-10.95 -9.68 5.20 90.0000 140.0000 0.0000 # jem_al_mc
-10.45 -9.68 5.20 90.0000 130.0000 0.0000 # jem_al_ml
-10.45 -9.68 5.70 90.0000 120.0000 0.0000 # jem_al_bl
-10.95 -9.68 5.70 90.0000 125.0000 0.0000 # jem_al_bc
-11.45 -9.68 5.70 90.0000 140.0000 0.0000 # jem_al_br
+10.55 -9.75 4.60 90.0000 160.0000 0.0000 # jem_al_tl
+10.95 -9.75 4.60 90.0000 165.0000 0.0000 # jem_al_tc
+11.35 -9.75 4.60 90.0000 165.0000 0.0000 # jem_al_tr
+11.35 -9.75 5.00 90.0000 150.0000 0.0000 # jem_al_mr
+10.95 -9.75 5.00 90.0000 140.0000 0.0000 # jem_al_mc
+10.55 -9.75 5.00 90.0000 130.0000 0.0000 # jem_al_ml
+10.55 -9.75 5.40 90.0000 120.0000 0.0000 # jem_al_bl
+10.95 -9.75 5.40 90.0000 125.0000 0.0000 # jem_al_bc
+11.35 -9.75 5.40 90.0000 140.0000 0.0000 # jem_al_br

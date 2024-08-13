@@ -3,7 +3,7 @@
 #  NOTES:  MRS scan trajectory
 #
 #
-#created=2024-08-12T06:52:15Z
+#created=2024-08-12T14:31:52Z
 #name=mrs_traj_port_corners
 #notes=MRS scan trajectory
 #creator=dhaddon

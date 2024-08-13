@@ -3,7 +3,7 @@
 #  NOTES:  MRS scan trajectory
 #
 #
-#created=2024-08-12T05:55:36Z
+#created=2024-08-12T14:32:50Z
 #name=mrs_traj_face_port
 #notes=MRS scan trajectory
 #creator=dhaddon
