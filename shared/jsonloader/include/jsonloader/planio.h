@@ -39,8 +39,7 @@ namespace jsonloader {
                        std::string creator);
   void WriteStation(std::ofstream & ofs, Eigen::VectorXd Pose, double tol, int id);
   void WriteSegment(std::ofstream & ofs, std::vector<Eigen::VectorXd> const& SegVec,
-                    double vel, double accel, double omega, double alpha, bool ff, int id);
-  void WritePlanFooter(std::ofstream & ofs, std::string const& plan_name, int id);
+                    double vel, double accel, double omega, double alpha, bool ff, bool pause, int id);
   void WritePlanFooter(std::ofstream & ofs, std::string const& plan_name, int id);
 
 }  // end namespace jsonloader

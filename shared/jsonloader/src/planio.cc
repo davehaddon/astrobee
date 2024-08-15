@@ -101,8 +101,8 @@ void jsonloader::WritePlanHeader(std::ofstream & ofs, double vel, double accel,
   ofs << "  \"sequence\" : [ {\n";
 }
 
-void jsonloader::WriteSegment(std::ofstream & ofs, std::vector<Eigen::VectorXd> const& SegVec,
-                              double vel, double accel, double omega, double alpha, bool ff, int id) {
+void jsonloader::WriteSegment(std::ofstream& ofs, std::vector<Eigen::VectorXd> const& SegVec, double vel, double accel,
+                              double omega, double alpha, bool ff, bool pause, int id) {
   ofs << "  }, {\n";
   ofs << "    \"type\" : \"Segment\",\n";
   ofs << "    \"waypoints\" : [ ";
@@ -134,7 +134,18 @@ void jsonloader::WriteSegment(std::ofstream & ofs, std::vector<Eigen::VectorXd> 
   }
   ofs << "    \"name\" : \"" << id << "-" << id + 1 << "\",\n";
   ofs << "    \"id\" : \"" << id << "\",\n";
-  ofs << "    \"sequence\" : [ ]\n";
+  if (pause) {
+    ofs << "        \"sequence\" : [ {\n";
+    ofs << "        \"type\" : \"pausePlan\",\n";
+    ofs << "        \"blocking\" : true,\n";
+    ofs << "        \"scopeTerminate\" : true,\n";
+    ofs << "        \"color\" : \"#555555\",\n";
+    ofs << "        \"name\" : \"" << id << ".0 PausePlan\",\n";
+    ofs << "        \"id\" : \"" << id << "p\" \n";
+    ofs << "    } ]\n";
+  } else {
+    ofs << "    \"sequence\" : [ ]\n";
+  }
   ofs << "  }, {\n";
 }
 

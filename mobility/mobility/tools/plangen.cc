@@ -51,6 +51,7 @@ DEFINE_string(output_type, "fplan", "Output file type. Options: fplan (default) 
               "It will write either a JSON file with .fplan extension to be used in GDS, or a .csv file "
               "with only accelerations to be used in MGTF.");
 DEFINE_bool(ff, false, "Plan in face-forward mode");
+DEFINE_bool(pause, true, "Plan a pause at each station, can be overridden per station ( # ,pause=...)");
 // DEFINE_double(rate, 62.5, "Segment sampling rate");
 DEFINE_double(vel, 0.2, "Desired velocity in m/s");
 DEFINE_double(accel, 0.0175, "Desired acceleration in m/s^2");
@@ -127,7 +128,7 @@ int main(int argc, char *argv[]) {
 
   std::vector<Eigen::Affine3d> Tf;
   std::vector<Eigen::VectorXd> Poses;
-  std::vector<std::map<std::string, float> > Opts;
+  std::vector<std::map<std::string, std::string>> Opts;
   std::string line;
   while (getline(ifs, line)) {
     if (has_only_whitespace_or_comments(line)) continue;
@@ -140,13 +141,14 @@ int main(int argc, char *argv[]) {
     }
 
     std::string token;
-    std::map<std::string, float> st_opts = {};
+    std::map<std::string, std::string> st_opts = {};
     size_t pos = -1;
+    std::cout << "Reading Station args" << std::endl;
     while (std::getline(is, token, ',')) {
       if ((pos = token.find('=')) != std::string::npos) {
-        // std::cout << "Found opt in " << token << " '" << token.substr(0,pos) << "' = " << stof(token.substr(pos+1))
-        // << std::endl;
-        st_opts[token.substr(0, pos)] = stof(token.substr(pos + 1));
+        std::cout << "Found opt in " << token << " '" << token.substr(0, pos) << "' = " << token.substr(pos + 1)
+                  << std::endl;
+        st_opts[token.substr(0, pos)] = token.substr(pos + 1);
       }
     }
 
@@ -180,16 +182,29 @@ int main(int argc, char *argv[]) {
     // Are there any station options we need to add?
     float min_cp = FLAGS_min_control_period;
     float vel = FLAGS_vel;
-    // std::cout << "Looking for opts in " << Opts[id].size() << std::endl;
+    bool ff = FLAGS_ff;
+    bool pause = FLAGS_pause;
+    std::cout << "Pause from FLAGS = " << pause << std::endl;
+    std::cout << "Looking for opts in " << Opts[id].size() << std::endl;
     if (Opts[id].find("min_cp") != Opts[id].end()) {
       std::cout << "Overriding default min_cp for station " << id << " of " << min_cp;
-      min_cp = Opts[id].find("min_cp")->second;
+      min_cp = std::stof(Opts[id].find("min_cp")->second);
       std::cout << " with " << min_cp << std::endl;
     }
     if (Opts[id].find("vel") != Opts[id].end()) {
       std::cout << "Overriding default vel for station " << id << " of " << vel;
-      vel = Opts[id].find("vel")->second;
+      vel = std::stof(Opts[id].find("vel")->second);
       std::cout << " with " << vel << std::endl;
+    }
+    if (Opts[id].find("ff") != Opts[id].end()) {
+      std::cout << "Overriding default face_forward for station " << id << " of " << vel;
+      ff = Opts[id].find("ff")->second == "True" ||  Opts[id].find("ff")->second == "true";
+      std::cout << " with " << ff << std::endl;
+    }
+    if (Opts[id].find("pause") != Opts[id].end()) {
+      std::cout << "Overriding default pause for station " << id << " of " << pause;
+      pause = Opts[id].find("pause")->second == "True" || Opts[id].find("pause")->second == "true";
+      std::cout << " with " << pause << std::endl;
     }
     planner_trapezoidal::InsertTrapezoid(segment,       // output
                                          station_time,  // this will be incremented
@@ -212,7 +227,7 @@ int main(int argc, char *argv[]) {
       SegVec.push_back(S);
     }
     if (FLAGS_output_type == "fplan") {
-      jsonloader::WriteSegment(ofs, SegVec, FLAGS_vel, FLAGS_accel, FLAGS_omega, FLAGS_alpha, FLAGS_ff, id);
+      jsonloader::WriteSegment(ofs, SegVec, vel, FLAGS_accel, FLAGS_omega, FLAGS_alpha, ff, pause, id);
     } else if (FLAGS_output_type == "csv") {
       // Write accelerations only
       for (it = segment.begin(); it != segment.end(); it++) {
