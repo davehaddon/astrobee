@@ -49,16 +49,6 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        ar_tag:
-          Value: false
-        body:
-          Value: false
-        bot_aft_mrs:
-          Value: true
-        bot_aft_mrs_frustum_left:
-          Value: true
-        bot_aft_mrs_frustum_right:
-          Value: true
         dock/berth1:
           Value: false
         dock/berth1/approach:
@@ -73,63 +63,13 @@ Visualization Manager:
           Value: false
         dock/body:
           Value: false
-        dock_cam:
-          Value: false
-        flashlight_aft:
-          Value: false
-        flashlight_front:
-          Value: true
         granite/body:
-          Value: false
-        handrail/approach:
-          Value: false
-        handrail/body:
-          Value: false
-        handrail/complete:
-          Value: false
-        haz_cam:
-          Value: true
-        imu:
-          Value: false
-        inertial_link:
           Value: false
         iss/body:
           Value: false
-        laser:
-          Value: false
-        nav_cam:
-          Value: true
-        payload/bottom_aft:
-          Value: true
-        payload/bottom_front:
-          Value: true
-        payload/top_aft:
-          Value: false
-        payload/top_front:
-          Value: false
         perch/body:
           Value: false
-        perch_cam:
-          Value: false
         rviz:
-          Value: false
-        sci_cam:
-          Value: false
-        top_aft:
-          Value: false
-        top_aft_arm_distal_link:
-          Value: false
-        top_aft_arm_proximal_link:
-          Value: false
-        top_aft_gripper_left_distal_link:
-          Value: false
-        top_aft_gripper_left_proximal_link:
-          Value: false
-        top_aft_gripper_right_distal_link:
-          Value: false
-        top_aft_gripper_right_proximal_link:
-          Value: false
-        truth:
           Value: false
         world:
           Value: false
@@ -140,57 +80,7 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        handrail/body:
-          handrail/approach:
-            {}
-          handrail/complete:
-            {}
         world:
-          body:
-            ar_tag:
-              {}
-            bot_aft_mrs:
-              bot_aft_mrs_frustum_left:
-                {}
-              bot_aft_mrs_frustum_right:
-                {}
-            dock_cam:
-              {}
-            flashlight_aft:
-              {}
-            flashlight_front:
-              {}
-            haz_cam:
-              {}
-            imu:
-              {}
-            inertial_link:
-              {}
-            laser:
-              {}
-            nav_cam:
-              {}
-            payload/bottom_aft:
-              {}
-            payload/bottom_front:
-              {}
-            payload/top_aft:
-              {}
-            payload/top_front:
-              {}
-            perch_cam:
-              {}
-            sci_cam:
-              {}
-            top_aft:
-              top_aft_arm_proximal_link:
-                top_aft_arm_distal_link:
-                  top_aft_gripper_left_proximal_link:
-                    top_aft_gripper_left_distal_link:
-                      {}
-                  top_aft_gripper_right_proximal_link:
-                    top_aft_gripper_right_distal_link:
-                      {}
           dock/body:
             dock/berth1:
               dock/berth1/approach:
@@ -209,8 +99,6 @@ Visualization Manager:
           perch/body:
             {}
           rviz:
-            {}
-          truth:
             {}
       Update Interval: 0
       Value: true
@@ -476,7 +364,7 @@ Visualization Manager:
               Marker Topic: /hw/laser/rviz
               Name: Laser
               Namespaces:
-                laser_visual: true
+                {}
               Queue Size: 100
               Value: true
             - Class: rviz/MarkerArray
@@ -484,8 +372,7 @@ Visualization Manager:
               Marker Topic: /hw/lights/rviz
               Name: Flashlights
               Namespaces:
-                flashlight_aft: true
-                flashlight_front: true
+                {}
               Queue Size: 100
               Value: true
           Enabled: true
