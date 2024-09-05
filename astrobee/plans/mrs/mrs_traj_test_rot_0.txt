@@ -1,0 +1,35 @@
+# MRS FPlan input file - created by dhaddon
+# mrs_traj_test_rot
+#  NOTES:  MRS scan trajectory
+#
+#
+#created=2024-08-09T12:38:52Z
+#name=mrs_traj_test_rot
+#debug=0
+#planNumber=0
+#linvel=0.15
+#linacc=0.0175
+#angvel=0.0873
+#angacc=0.1745
+#segSteps=3
+#profileName=iss_mrs
+#flightMode=nominal
+#collisionDistance=0.02
+#notes=MRS scan trajectory
+#defaultSpeed=0.15
+#defaultTolerance=0.1
+#creator=dhaddon
+#newFile=False
+# Stations
+10.94 -9.68 4.85 0.0000 0.0000 90.0000 # port_end_down {"check_zones": false}
+10.94 -9.68 4.85 0.0000 0.0000 90.0000 # starboard_end_down_star
+10.94 -9.68 4.85 -90.0000 0.0000 90.0000 # starboard_end_aft_star
+10.94 -9.68 4.85 0.0000 -90.0000 0.0000 # starboard_end_aft_down
+10.94 -9.68 4.85 90.0000 0.0000 -90.0000 # starboard_end_aft_port
+10.94 -9.68 4.85 90.0000 0.0000 0.0000 # port_end_port
+10.94 -9.68 4.85 90.0000 0.0000 90.0000 # port_end_forward
+10.94 -9.68 4.85 180.0000 0.0000 90.0000 # starboard_end_up_star
+10.94 -9.68 4.85 180.0000 0.0000 0.0000 # starboard_end_up_forward
+10.94 -9.68 4.85 180.0000 0.0000 -90.0000 # starboard_end_up_port
+10.94 -9.68 4.85 90.0000 0.0000 0.0000 # port_end_port_forward
+10.94 -9.68 4.85 90.0000 90.0000 0.0000 # port_end_port_up

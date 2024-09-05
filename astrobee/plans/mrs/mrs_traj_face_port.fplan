@@ -20,8 +20,13 @@
     "id" : "FreeFlyer"
   },
   "visible" : true,
+<<<<<<< HEAD
   "dateCreated" : "2024-08-13T00:32:50Z",
   "dateModified" : "2024-08-13T00:32:50Z",
+=======
+  "dateCreated" : "2024-08-09T05:28:06Z",
+  "dateModified" : "2024-08-09T05:28:06Z",
+>>>>>>> csiro
   "xpjson" : "0.1",
   "defaultSpeed" : 0.1,
   "defaultTolerance" : 1.0,
@@ -72,7 +77,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "0-1",
     "id" : "0",
     "sequence" : [ ]
@@ -107,7 +116,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "1-2",
     "id" : "1",
     "sequence" : [ ]
@@ -142,7 +155,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "2-3",
     "id" : "2",
     "sequence" : [ ]
@@ -177,7 +194,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "3-4",
     "id" : "3",
     "sequence" : [ ]
@@ -212,7 +233,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "4-5",
     "id" : "4",
     "sequence" : [ ]
@@ -247,7 +272,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "5-6",
     "id" : "5",
     "sequence" : [ ]
@@ -282,7 +311,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "6-7",
     "id" : "6",
     "sequence" : [ ]
@@ -317,7 +350,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "7-8",
     "id" : "7",
     "sequence" : [ ]
@@ -352,7 +389,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "8-9",
     "id" : "8",
     "sequence" : [ ]
@@ -387,7 +428,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "9-10",
     "id" : "9",
     "sequence" : [ ]
@@ -422,7 +467,11 @@
     "maxAccel" : 0.017,
     "maxAAccel" : 0.17,
     "stopAtEnd" : true,
+<<<<<<< HEAD
     "faceForward" : true,
+=======
+    "faceForward" : false,
+>>>>>>> csiro
     "name" : "10-11",
     "id" : "10",
     "sequence" : [ ]

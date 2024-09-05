@@ -59,7 +59,7 @@ then
 	echo "Remount"
 	adb remount
 	sleep 1
-	adb push $ANDROID_PATH/scripts/emu_setup_default /cache/
+	adb push $ANDROID_PATH/scripts/emu_setup_default.sh /cache/
 	adb push $ANDROID_PATH/scripts/hosts.emulator /system/etc/hosts
 	#adb shell su 0 sh /cache/emulator_setup_net.sh
 	adb shell su 0 sh /cache/emu_setup_default.sh

@@ -145,11 +145,12 @@
                         rpy="0.0 3.1415 0.0" />
   </xacro:if>
   <xacro:if value="${pay_bot_front == 'perching_arm'}">
-    <xacro:perching_arm bay="bot_aft"
+    <xacro:perching_arm bay="bot_front"
                         xyz="-0.01 0.0 -0.065"
                         rpy="0.0 3.1415 0.0" />
   </xacro:if>
 
+<<<<<<< HEAD
   <!-- MRS Payload -->
   <xacro:include filename="$(find description)/urdf/macro_mrs_payload.urdf.xacro" />
   <xacro:if value="${pay_bot_aft == 'mrs_payload'}">
@@ -163,6 +164,20 @@
                         rpy="0.0 0.0 3.1415" />
   </xacro:if>
 
+=======
+  <!-- MRS PAYLOAD -->
+  <xacro:include filename="$(find description)/urdf/sensor_mrs.urdf.xacro" />
+  <xacro:if value="${pay_bot_front == 'mrs_payload'}">
+    <xacro:mrs_payload bay="bot_front"
+                        xyz="0.00 0.0 0.050"
+                        rpy="0.0 0.0 0.0" />
+  </xacro:if>
+  <xacro:if value="${pay_bot_aft == 'mrs_payload'}">
+    <xacro:mrs_payload bay="bot_aft"
+                        xyz="0.00 0.0 0.050"
+                        rpy="0.0 0.0 3.1415" />
+  </xacro:if>
+>>>>>>> csiro
   <!-- GRANITE-SPECIFIC OPTIONS -->
   <xacro:if value="${world == 'granite'}">
     <xacro:include filename="$(find description)/urdf/model_carriage.urdf.xacro" />
