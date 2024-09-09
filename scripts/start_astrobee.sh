@@ -25,6 +25,9 @@ then
 	export MLP_IP=10.0.2.2
 	export LLP_IP=10.0.2.2
 
+	export ROS_MASTER_URI=http://10.0.2.2:11311
+	export ROS_IP=10.0.2.2
+
 	export LLP_ADDRESS=${LLP_IP}/24
 	echo "Adding Android Emulator default IP to $LLP_DEVICE"
 
@@ -39,9 +42,11 @@ then
 	sudo ip route add 10.0.2.0/24 via 10.0.2.1 dev lo
 	# cat /etc/hosts
 	
+	setup_emu=1
 	if ps ac | grep qemu
 	then
 		echo "Emulator already running... Not starting it again"
+		setup_emu=0
 	else
 		sudo -E ~/astrobee_ws/src/submodules/android/scripts/launch_emulator.sh -n &
 		sleep 5
@@ -52,22 +57,22 @@ then
 		sleep 5
 	done
 	
-	echo "ADB Found.  Setting HLP networks"
-	adb root
-	echo "Root"
-	sleep 1
-	echo "Remount"
-	adb remount
-	sleep 1
-	adb push $ANDROID_PATH/scripts/emu_setup_default.sh /cache/
-	adb push $ANDROID_PATH/scripts/hosts.emulator /system/etc/hosts
-	#adb shell su 0 sh /cache/emulator_setup_net.sh
-	adb shell su 0 sh /cache/emu_setup_default.sh
-	echo "Unroot"
-	adb unroot
-
-	export ROS_MASTER_URI=http://10.0.2.2:11311
-	export ROS_IP=10.0.2.2
+	if [ $setup_emu ]
+	then
+		echo "ADB Found.  Setting HLP networks"
+		adb root
+		echo "Root"
+		sleep 1
+		echo "Remount"
+		adb remount
+		sleep 1
+		adb push $ANDROID_PATH/scripts/emu_setup_default.sh /cache/
+		adb push $ANDROID_PATH/scripts/hosts.emulator /system/etc/hosts
+		#adb shell su 0 sh /cache/emulator_setup_net.sh
+		adb shell su 0 sh /cache/emu_setup_default.sh
+		echo "Unroot"
+		adb unroot
+	fi
 
 	echo "Pinging HLP at $HLP_IP"
 	if ping -w 2 -c 1 $HLP_IP
